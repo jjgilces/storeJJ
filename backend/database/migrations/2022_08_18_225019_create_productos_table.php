@@ -13,21 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('productos', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('slug')->unique();
-            $table->string('details')->nullable();
+            $table->string('name');
             $table->double('price');
-            $table->double('shipping_cost');
             $table->text('description');
-            $table->integer('category_id');
-            $table->unsignedInteger('brand_id')->unsigned();
-            $table->string('image_path');
+            $table->text('category');
+            $table->integer('rating_id');
+            $table->string('image');
             $table->timestamps();
         });
-
-
     }
 
     /**
@@ -37,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('productos');
     }
 };
