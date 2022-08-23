@@ -22,12 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::apiResource("clientes",ClienteController::class);
 Route::apiResource("productos",ProductoController::class);
-<<<<<<< HEAD
 // Route::apiResource("productos",ComentarioController::class);
 // Route::get('/productos/{id}', function ($id) {
 //     return new ProductoController.findOne($id);
 // });
-=======
 Route::apiResource("productos/comentarios",ComentarioController::class);
 Route::apiResource("tiendas",TiendaController::class);
->>>>>>> refs/remotes/origin/main
