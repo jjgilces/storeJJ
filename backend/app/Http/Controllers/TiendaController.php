@@ -49,7 +49,7 @@ class TiendaController extends Controller
      */
     public function show($id)
     {
-        //
+        return Tienda::findOrFail($id);
     }
 
     /**
@@ -72,7 +72,13 @@ class TiendaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tienda = Tienda::find($id);
+        $tienda->name = $request->input('name');
+        $tienda->type = $request->input('type');
+        $tienda->direction = $request->input('direction');
+        $tienda->save();
+
+        return response()->json($tienda);
     }
 
     /**
@@ -83,6 +89,7 @@ class TiendaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tienda = Tienda::findOrFail($id);
+        $tienda->delete();
     }
 }
