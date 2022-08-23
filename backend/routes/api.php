@@ -22,5 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::apiResource("clientes",ClienteController::class);
 Route::apiResource("productos",ProductoController::class);
-Route::apiResource("productos",ComentarioController::class);
+Route::apiResource("productos/comentarios",ComentarioController::class);
 Route::apiResource("tiendas",TiendaController::class);
