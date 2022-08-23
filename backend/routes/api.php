@@ -21,4 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::apiResource("clientes",ClienteController::class);
 Route::apiResource("productos",ProductoController::class);
-Route::apiResource("productos",ComentarioController::class);
+// Route::apiResource("productos",ComentarioController::class);
+// Route::get('/productos/{id}', function ($id) {
+//     return new ProductoController.findOne($id);
+// });

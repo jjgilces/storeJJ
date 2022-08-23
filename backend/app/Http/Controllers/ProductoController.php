@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductPostRequest;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 class ProductoController extends Controller
@@ -13,7 +14,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos= Producto::all();//Select * fromo clients 
+        $productos= Producto::all();//Select * fromb products 
         return $productos;
     }
 
@@ -23,10 +24,14 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductPostRequest $request)
     {
         $producto= Producto::create($request->all());
-        return $producto;
+        return response()->json([
+            'status' => true,
+            'message'=>"Product created succesful",
+            'product'=>$producto
+        ],200);
     }
 
     /**
@@ -37,7 +42,8 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = Producto::find($id);
+        return $user;
     }
 
     /**
@@ -47,9 +53,15 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductPostRequest $request, $id)
     {
-        //
+        $post = Producto::find($id);
+        $post->update($request->all());
+        return response()->json([
+            'status' => true,
+            'message'=>"Product Updated succesful",
+            'product'=>$post
+        ],200);
     }
 
     /**
@@ -58,8 +70,10 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
-        //
+        $user = Producto::find($id);
+        $user->delete();
+       return [];
     }
 }
