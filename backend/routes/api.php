@@ -26,5 +26,5 @@ Route::apiResource("productos",ProductoController::class);
 // Route::get('/productos/{id}', function ($id) {
 //     return new ProductoController.findOne($id);
 // });
-Route::apiResource("productos/comentarios",ComentarioController::class);
+Route::apiResource("comentarios",ComentarioController::class);
 Route::apiResource("tiendas",TiendaController::class);

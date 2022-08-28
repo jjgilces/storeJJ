@@ -13,8 +13,18 @@ class ComentarioController extends Controller
      */
     public function index()
     {
-        $comentario= Comentario::all();//Select * from comentario 
-        return $comentario;
+        $comentarios= Comentario::all();//Select * fromb products 
+        return $comentarios;
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -25,8 +35,15 @@ class ComentarioController extends Controller
      */
     public function store(Request $request)
     {
-        $comentario= Comentario::create($request->all());
-        return $comentario;
+        $comentario = new Comentario;
+        $comentario->nombre_cliente = $request->input('nombre_cliente');
+        $comentario->titulo = $request->input('titulo');
+        $comentario->descripcion = $request->input('descripcion');
+        $comentario->calificacion = $request->input('calificacion');
+        $comentario->likes = $request->input('likes');
+        $comentario->dislikes = $request->input('dislikes');
+        $comentario->id_producto = $request->input('id_producto');
+        $comentario->save();
     }
 
     /**
@@ -36,6 +53,18 @@ class ComentarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    {
+        $user = Comentario::find($id);
+        return $user;
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }
@@ -49,7 +78,17 @@ class ComentarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Comentario::find($id);
+        $comentario->nombre_cliente = $request->input('nombre_cliente');
+        $comentario->titulo = $request->input('titulo');
+        $comentario->descripcion = $request->input('descripcion');
+        $comentario->calificacion = $request->input('calificacion');
+        $comentario->likes = $request->input('likes');
+        $comentario->dislikes = $request->input('dislikes');
+        $comentario->id_producto = $request->input('id_producto');
+        $comentario->save();
+
+        return response()->json($comentario);
     }
 
     /**
@@ -60,6 +99,7 @@ class ComentarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Comentario::find($id);
+        $user->delete();
     }
 }

@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "nombre_cliente": "Juan Lopez",
+        "titulo": "Excelente resistencia",
+        "descripcion": "Me parece una mochila muy resistente. La llene a mas no poder y la tela no se estiro",
+        "calificacion": "5",
+        "likes": 2,
+        "dislikes": 0,
+        "id_producto": 1
+    }
+]
