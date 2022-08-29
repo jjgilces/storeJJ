@@ -1,27 +1,27 @@
 <app-header></app-header>
-<div id="navbar" class="d-flex text-center card-top container-fluid">
+<div id="navbar" class="navbar d-flex text-center card-top container-fluid">
     <div class="container d-flex">
         <div class="item">
-            <a >
-                <i class="fa-solid fa-gifts"></i>
+            <a (click)="filter('')">
+                <i class="fa-solid fa-gifts fa-2x"></i>
                 <h6>All products</h6>
             </a>
         </div>
         <div class="item">
-            <a >
-                <i class="fa-solid fa-computer"></i>
+            <a (click)="filter('electronics')">
+                <i class="fa-solid fa-computer fa-2x"></i>
                 <h6>Electronics</h6>
             </a>
         </div>
         <div class="item">
-            <a >
-                <i class="fa-solid fa-shirt"></i>
+            <a (click)="filter('fashion')">
+                <i class="fa-solid fa-shirt fa-2x"></i>
                 <h6>Fashion</h6>
             </a>
         </div>
         <div class="item">
-            <a >
-                <i class="fa-solid fa-burger"></i>
+            <a (click)="filter('food')">
+                <i class="fa-solid fa-burger fa-2x"></i>
                 <h6>Food</h6>
             </a>
         </div>
