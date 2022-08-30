@@ -1,0 +1,10 @@
+.card {
+    max-width: 75%;
+    margin-bottom: 8px;
+  }
+.full-width {
+  width: 100%;
+}
+.star{
+  color: yellow;
+}

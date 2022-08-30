@@ -14,4 +14,18 @@ export class ApiService {
       return res;
     }))
   }
+
+  getOneProduct(producto:any){
+    return this.http.get<any>("http://127.0.0.1:8000/api/productos/${producto}")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  getComent(){
+    return this.http.get<any>("http://127.0.0.1:8000/api/comentarios")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
 }

@@ -1,0 +1,47 @@
+<mat-divider></mat-divider>
+<div class="container">
+    <h2 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">Rating</h2>
+    <div class="row">
+        <div class="col">
+            <div>
+                <h1><strong class="star">★</strong>{{rating}}</h1>
+                <h2 id="num-calificaciones" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{total}} reviews</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <ng-container *ngFor="let comentario of comentarios">
+            <mat-card class="card">
+                <mat-card-title-group>
+                  <mat-card-title>{{comentario.titulo}}</mat-card-title>
+                  <mat-card-subtitle>{{comentario.nombre_cliente}}</mat-card-subtitle>
+                  <div class="star" ><h2>★{{comentario.calificacion}}</h2></div>
+                </mat-card-title-group>
+                <mat-card-content>
+                  {{comentario.descripcion}}
+                </mat-card-content>
+            </mat-card>
+        </ng-container>
+    </div>
+    <div class="row">
+        <mat-card class="card">
+            <mat-card-title-group>
+              <mat-card-title>
+                Title
+                <mat-form-field class="full-width" appearance="fill">
+                    <input matInput>
+                </mat-form-field>
+              </mat-card-title>
+              <div class="star"><h2>★★★★★</h2>
+              </div>
+            </mat-card-title-group>
+            <mat-card-content>
+                <h2>Review</h2>
+                <mat-form-field class="full-width"appearance="fill">
+                    <input matInput>
+                </mat-form-field>
+            </mat-card-content>
+            <button class="btn btn-danger" (click)=guardar()>Publish    </button> 
+        </mat-card>
+    </div>
+</div>

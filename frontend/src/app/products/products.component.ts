@@ -11,6 +11,7 @@ export class ProductsComponent implements OnInit {
 
   public productList : any ;
   public filterCategory : any
+  public static selected: number = 0;
   searchKey:string ="";
   constructor(private api : ApiService, private cartService : CartService) { }
 
@@ -36,5 +37,7 @@ export class ProductsComponent implements OnInit {
       }
     })
   }
-
+  comentarios(idProducto:any){
+    ProductsComponent.selected = idProducto;
+  }
 }
