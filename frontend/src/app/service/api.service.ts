@@ -16,7 +16,7 @@ export class ApiService {
   }
 
   getOneProduct(producto:any){
-    return this.http.get<any>("http://127.0.0.1:8000/api/productos/${producto}")
+    return this.http.get<any>("http://127.0.0.1:8000/api/productos/"+producto)
     .pipe(map((res:any)=>{
       return res;
     }))
