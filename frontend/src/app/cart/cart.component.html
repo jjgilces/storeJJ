@@ -1,11 +1,11 @@
 <app-header></app-header>
 <ng-container *ngIf="products.length !=0">
-    <div class="container">
+    <div class="container p-t-2">
         <div class="card-table">
             <div class="cart-product">
-                <table class="table table-responsive">
+                <table class="table table-responsive table-bordered">
                     <thead>
-                        <tr>
+                        <tr class="table-primary">
                             <th>Sr.No</th>
                             <th>Product Name</th>
                             <th>Product Image</th>
@@ -33,7 +33,7 @@
                             <td colspan="4"></td>
                             <td><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button></td>
                             <td><button routerLink="/products" class="btn btn-primary">Shop More</button></td>
-                            <td><button class="btn btn-success">Checkout</button></td>
+                            <td><button  (click)="comentarios()" class="btn btn-success">Checkout</button></td>
                             <td><strong>Grand Total : ${{grandTotal}}</strong></td>
                         </tr>
                     </tbody>

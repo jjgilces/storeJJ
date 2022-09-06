@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsComponent } from '../products/products.component';
 import { ApiService } from 'src/app/service/api.service';
 import { CartService } from 'src/app/service/cart.service';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-producto',
   templateUrl: './producto.component.html',
@@ -11,14 +11,14 @@ import { CartService } from 'src/app/service/cart.service';
 export class ProductoComponent implements OnInit {
   items:any ={}
   searchKey:string =""
-  constructor(private api : ApiService, private cartService : CartService) { }
+  constructor(private api : ApiService, private cartService : CartService,
+    private activatedRoute:ActivatedRoute,) { 
+      this.activatedRoute.params.subscribe( variable =>{
+        this.items=this.api.getOneProduct(variable['id']);
+      })
+    }
 
   ngOnInit(): void {
-    this.api.getOneProduct(ProductsComponent.selected)
-    .subscribe(res=>{
-      this.items = res;
-    });
-
     this.cartService.search.subscribe((val:any)=>{
       this.searchKey = val;
     })

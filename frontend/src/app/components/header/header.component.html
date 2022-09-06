@@ -16,8 +16,8 @@
 
 
         </div>
-        <button routerLink="cart" class="btn btn-danger">
-            <a href="cart"><i style="font-size: 30px;" class="fas fa-cart-plus"></i></a>
+        <button [routerLink]="['/cart']" class="btn btn-danger">
+            <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
             <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
         </button>
     </div>
